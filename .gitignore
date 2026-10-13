@@ -1,0 +1,11 @@
+node_modules/
+.env
+*.env
+
+# Audit reports are generated and about a moment. The pass log is not ignored:
+# whether the audit runs at all should be readable from the repo.
+knowhow/_audit/*
+!knowhow/_audit/log.md
+
+# Local Claude Code settings (permissions, personal hooks). The shared ones are in settings.json.
+.claude/settings.local.json

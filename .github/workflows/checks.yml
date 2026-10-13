@@ -1,0 +1,27 @@
+name: System checks
+
+# The three guards from knowhow/doctrine.md. They only read files: no install, no secrets.
+#   check-system-map.js       Rule 9: the index lists everything, and everything listed exists
+#   check-execution-modes.js  Rule 5: only unattended code touches a paid model API
+#   check-tickets.js          tickets agree in folder, header, body and index
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: The index is the SSOT
+        run: node scripts/check-system-map.js
+      - name: The paid API is only for unattended code
+        run: node scripts/check-execution-modes.js
+      - name: Tickets agree with themselves
+        run: node scripts/check-tickets.js

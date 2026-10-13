@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "docs": {
+      "everyDays": 30,
+      "lastRun": null,
+      "what": "/audit-knowhow: do the docs still describe the code?"
+    },
+    "repo-health": {
+      "everyDays": 30,
+      "lastRun": null,
+      "what": "Fix internal markdown links that point at files that moved or were deleted"
+    }
+  }
+}

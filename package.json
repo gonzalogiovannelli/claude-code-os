@@ -1,0 +1,12 @@
+{
+  "name": "claude-code-os",
+  "private": true,
+  "description": "A file-based operating system for a repo run with Claude Code: doctrine, an index that cannot lie, and the checks that keep both honest.",
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "check": "node scripts/check-system-map.js && node scripts/check-execution-modes.js && node scripts/check-tickets.js",
+    "maintenance": "node scripts/maintenance-due.js",
+    "architecture": "node scripts/knowhow/build-architecture-html.js"
+  }
+}

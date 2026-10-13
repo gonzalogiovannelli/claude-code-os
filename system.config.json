@@ -1,0 +1,16 @@
+{
+  "indexes": ["knowhow/index.md"],
+  "statuses": ["live", "draft", "deprecated"],
+  "paidApiPatterns": [
+    "ANTHROPIC_API_KEY", "OPENAI_API_KEY",
+    "@anthropic-ai/sdk", "\\bfrom\\s+anthropic\\b", "\\bimport\\s+anthropic\\b", "require\\(\\s*['\"]anthropic",
+    "['\"]openai['\"]", "\\bfrom\\s+openai\\b", "\\bimport\\s+openai\\b",
+    "api\\.anthropic\\.com", "api\\.openai\\.com"
+  ],
+  "automationEntryPoints": [],
+  "systemMapExemptScripts": {},
+  "systemMapExemptSubtrees": {
+    "tickets": { "index": true, "status": false },
+    "_audit": { "index": true, "status": true }
+  }
+}
