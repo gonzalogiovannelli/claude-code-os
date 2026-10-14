@@ -40,3 +40,11 @@ owns the detail.
 | `configuration.md` | Every field of `system.config.json` |
 | `architecture.md` | The visual map (Mermaid); `architecture.html` is generated from it |
 | `tickets-index.md` | Open and closed tickets, and how a ticket is closed |
+
+## 4. Git hooks
+
+| Hook | What it does |
+|---|---|
+| `.githooks/commit-msg` | Rejects a commit without a type prefix (`feat`, `fix`, `chore`) |
+| `.githooks/post-commit` | Bumps `VERSION`, writes `CHANGELOG.md` and tags the commit, from its prefix |
+| `.githooks/version.js` | The logic behind both. No dependencies |

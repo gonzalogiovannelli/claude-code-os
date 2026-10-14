@@ -3,7 +3,14 @@
     "SessionStart": [
       {
         "hooks": [
-          { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/scripts/maintenance-due.js\"" }
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/maintenance-due.js\""
+          },
+          {
+            "type": "command",
+            "command": "[ \"$(git config core.hooksPath)\" = \".githooks\" ] || echo '{\"systemMessage\":\"WARNING: git hooks are not active on this machine, so the version does not bump. Enable them with: git config core.hooksPath .githooks\",\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"core.hooksPath does not point to .githooks: commits do not bump the version. Mention it in one line at the start and ask whether to enable it with git config core.hooksPath .githooks.\"}}'"
+          }
         ]
       }
     ],
@@ -11,7 +18,10 @@
       {
         "matcher": "Edit|Write|MultiEdit",
         "hooks": [
-          { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/scripts/knowhow/build-architecture-html.js\" --hook" }
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/knowhow/build-architecture-html.js\" --hook"
+          }
         ]
       }
     ]

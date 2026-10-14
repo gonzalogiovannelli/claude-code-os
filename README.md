@@ -43,6 +43,7 @@ went wrong; the business details were removed.
 1. **Use this template** on GitHub (or copy the files into your repo). Node 18 or newer;
    there are no dependencies.
 2. Run the checks: `npm run check`. All three should pass on the skeleton as it ships.
+   Then enable the git hooks: `git config core.hooksPath .githooks` (see [Versioning](#versioning)).
 3. Fill in the top of `CLAUDE.md` with what your repo is.
 4. Add your first skill in `.claude/skills/`. Run `npm run check` and watch it fail.
    Then add its row to `knowhow/index.md`. That failure is the system working.
@@ -50,9 +51,23 @@ went wrong; the business details were removed.
    `automationEntryPoints` in `system.config.json`. See [configuration](knowhow/configuration.md).
 6. Work through [T-001](knowhow/tickets/T-001-adapt-the-skeleton.md) and close it.
 
-The hooks in `.claude/settings.json` run the maintenance nag at session start and rebuild
-the architecture page when Claude edits it. Claude Code asks you to approve them the
+The hooks in `.claude/settings.json` run the maintenance nag at session start, warn if the
+git hooks are not enabled, and rebuild the architecture page when Claude edits it. Claude Code asks you to approve them the
 first time.
+
+## Versioning
+
+The repo has a version (`VERSION`, `CHANGELOG.md` and one `vX.Y.Z` tag per version) that bumps
+itself on every commit from its prefix, following [Conventional Commits](https://www.conventionalcommits.org/)
+and [SemVer](https://semver.org/):
+
+- `chore:` pure data. No bump
+- `fix:` an adjustment to something that exists. Bumps the last number
+- `feat:` something new (a skill, a script, a check). Bumps the middle one
+- `!` after the type (`feat!:`) if it changes how the repo is used. Bumps the first
+
+`.githooks/commit-msg` rejects a commit without a prefix and `.githooks/post-commit` bumps the
+version. History before 2026-10-14 was rebuilt by classifying each old commit.
 
 ## What it does not do
 

@@ -43,6 +43,10 @@ same commit.** See [[knowhow/doctrine]] Rule 2.
 
 **Before committing:** `npm run check`.
 
+**Every commit starts with its type:** `chore:` data, `fix:` an adjustment, `feat:` something
+new, and `!` after the type if it changes how the repo is used. The version bumps itself and
+`.githooks/commit-msg` rejects a commit without a prefix. See the Versioning section of the README.
+
 **Why these rules are written here and not only in the checks:** the check catches you
 at push time, after the work was done the wrong way. This paragraph is what stops you
 doing it in the first place. The prose prevents, the check catches. Neither holds alone.
